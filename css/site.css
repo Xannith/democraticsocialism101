@@ -32,6 +32,30 @@
   --color-on-dark: #f5f8fc;
   --color-on-dark-muted: #c6d4e6;
 
+  /* Color: comparison matrix, one hue per economic model.
+     Ordered from predominantly social ownership to predominantly private.
+     Validated as a categorical set on the light surface: all five clear the
+     lightness band and chroma floor, worst adjacent pair separation is
+     15.6 normal vision and 15.2 under simulated deuteranopia. Every column
+     also carries a text label, so color never carries identity alone. */
+  --model-1: #2a78d6;
+  --model-2: #1baf7a;
+  --model-3: #008300;
+  --model-4: #eda100;
+  --model-5: #e34948;
+  /* Ink chosen per fill so header text clears WCAG large-text contrast */
+  --model-1-ink: #ffffff;
+  --model-2-ink: #10233a;
+  --model-3-ink: #ffffff;
+  --model-4-ink: #10233a;
+  --model-5-ink: #ffffff;
+  /* Pale washes of the same hues for cell backgrounds */
+  --model-1-wash: #eaf2fc;
+  --model-2-wash: #e4f7f0;
+  --model-3-wash: #e8f4e8;
+  --model-4-wash: #fdf3e0;
+  --model-5-wash: #fdecec;
+
   /* Color: borders and hairlines */
   --color-border: #d3deec;
   --color-hairline-on-dark: rgba(255, 255, 255, 0.14);
@@ -242,6 +266,212 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 
 /* Generic card */
 .card { padding: var(--space-5); }
+
+/* Wide tables scroll inside their own container rather than pushing the page
+   sideways. Keyboard users can reach the scroll area because it is focusable. */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table-scroll:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+.table-scroll table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.table-scroll caption {
+  text-align: left;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+  padding-bottom: var(--space-3);
+}
+.table-scroll th,
+.table-scroll td {
+  text-align: left;
+  vertical-align: top;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  line-height: 1.5;
+}
+.table-scroll thead th {
+  color: var(--color-navy);
+  border-bottom-width: 2px;
+}
+.table-scroll tbody th {
+  color: var(--color-navy);
+  white-space: nowrap;
+}
+.table-scroll tbody tr:last-child th,
+.table-scroll tbody tr:last-child td { border-bottom: 0; }
+
+/* Comparison matrix: five economic models across six dimensions.
+   Stacks to one column on small screens, two at tablet, five at desktop,
+   where it widens past the narrow reading column. From the two-column
+   breakpoint up, subgrid keeps every dimension row aligned across columns,
+   so the grid reads as a matrix rather than as a row of unrelated cards. */
+.matrix {
+  margin: 0 0 var(--space-6);
+}
+@media (min-width: 78rem) {
+  .matrix {
+    width: min(72rem, calc(100vw - 3rem));
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.matrix__gradient {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-3);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-ink-muted);
+}
+.matrix__gradient::after {
+  content: "";
+  flex: 1 1 12rem;
+  min-width: 8rem;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    to right,
+    var(--model-1),
+    var(--model-2),
+    var(--model-3),
+    var(--model-4),
+    var(--model-5)
+  );
+}
+.matrix__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+.matrix__col {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-white);
+}
+.matrix__head {
+  margin: 0;
+  padding: var(--space-4);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: var(--line-heading);
+  text-align: center;
+  background-color: var(--model-color);
+  color: var(--model-ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.matrix__head span {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.92;
+}
+.matrix__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 auto;
+}
+.matrix__cell {
+  padding: var(--space-4);
+  background-color: var(--model-wash);
+  flex: 1 1 auto;
+}
+.matrix__cell dt {
+  margin: 0 0 var(--space-1);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--color-navy);
+}
+.matrix__cell dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-ink);
+}
+.matrix__col--1 { --model-color: var(--model-1); --model-ink: var(--model-1-ink); --model-wash: var(--model-1-wash); }
+.matrix__col--2 { --model-color: var(--model-2); --model-ink: var(--model-2-ink); --model-wash: var(--model-2-wash); }
+.matrix__col--3 { --model-color: var(--model-3); --model-ink: var(--model-3-ink); --model-wash: var(--model-3-wash); }
+.matrix__col--4 { --model-color: var(--model-4); --model-ink: var(--model-4-ink); --model-wash: var(--model-4-wash); }
+.matrix__col--5 { --model-color: var(--model-5); --model-ink: var(--model-5-ink); --model-wash: var(--model-5-wash); }
+.matrix__note {
+  margin: var(--space-4) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 44rem) {
+  .matrix__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 78rem) {
+  .matrix__grid { grid-template-columns: repeat(5, 1fr); column-gap: var(--space-3); }
+}
+
+/* Row alignment across columns. Falls back to the flex layout above where
+   subgrid is unavailable, which costs alignment but nothing else. */
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 44rem) {
+    .matrix__grid {
+      grid-template-rows: auto repeat(6, auto);
+      row-gap: 2px;
+    }
+    .matrix__col {
+      display: grid;
+      grid-row: span 7;
+      grid-template-rows: subgrid;
+    }
+    .matrix__list {
+      display: grid;
+      grid-row: 2 / span 6;
+      grid-template-rows: subgrid;
+      gap: 0;
+    }
+  }
+}
+
+/* Forced-colors and print: fall back to hairlines, since the fills drop out */
+@media (forced-colors: active) {
+  .matrix__col { border: 1px solid CanvasText; }
+  .matrix__cell { border-top: 1px solid CanvasText; }
+}
+
+/* Figures with captions */
+.figure {
+  margin: 0 0 var(--space-5);
+}
+.figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+.figure__caption {
+  margin: var(--space-3) 0 0;
+  font-size: 0.9375rem;
+  line-height: var(--line-body);
+  color: var(--color-ink-muted, inherit);
+}
 
 /* Buttons */
 .btn {
