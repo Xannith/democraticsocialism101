@@ -26,7 +26,9 @@ Core promises to the reader:
 - Never conflate: democratic socialism, social democracy, socialism,
   communism, and mixed economy each get precise, sourced definitions on the
   taxonomy page, and every other page links to that page rather than
-  redefining terms.
+  redefining terms. The single exception is the glossary page (section 3),
+  which gives brief companion definitions and must stay consistent with the
+  taxonomy page, which remains authoritative.
 
 ## 3. Site Architecture
 
@@ -53,6 +55,13 @@ Crawl:
   mixed economy)
 - common-misconceptions.html
 - faq.html (with FAQ structured data markup)
+- glossary.html (defines DemSoc and adjacent systems: social democracy,
+  socialism, communism, corporate capitalism, crony capitalism, state
+  capitalism, and mixed economy; one-paragraph definition plus a short
+  exemplar-country list per entry; the informal term "corpo-capitalism" may
+  appear only as a colloquial synonym under corporate capitalism, never as a
+  primary term; taxonomy remains the authoritative treatment of the five core
+  terms and the glossary must not diverge from it)
 
 Walk:
 - case-studies/index.html (comparison table across all countries)
@@ -62,6 +71,14 @@ Walk:
 - case-studies/mondragon.html (cooperative, not a country, template adapts)
 - case-studies/united-states.html (what exists already, what is proposed)
 - policy-areas.html (healthcare, labor, housing, banking, ownership models)
+- figures.html ("Who Identifies as a Democratic Socialist"): includes only
+  figures who publicly self-identify as democratic socialists, cited to their
+  own statements or documented DSA membership; no one is included based on
+  labels applied by others; the inclusion criterion is stated on the page
+  itself; the page carries a visible "Last verified" date. Initial entries:
+  Bernie Sanders (self-identified, not a DSA member), Alexandria Ocasio-Cortez
+  (DSA member), Zohran Mamdani (DSA member, NYC mayor), and Rashida Tlaib
+  (DSA-aligned).
 
 Run:
 - theory/index.html
@@ -154,9 +171,28 @@ structured data, accessibility pass, Lighthouse audit.
 Each phase gets its own Claude Code prompt. Do not combine phases in one
 session.
 
-## 10. Open Decisions
+## 10. Resolved Decisions
 
-- [ ] Site byline: attributed, pseudonymous, or unattributed (editorial "we").
-- [ ] Visual identity: palette and typography not yet chosen.
-- [ ] Whether to include a glossary page separate from taxonomy.
-- [ ] Comment or contact mechanism, if any (Formspree pattern available).
+- Site byline: unattributed; editorial voice is the first person plural "we";
+  no personal names appear anywhere on the site.
+- Visual identity: defined in section 11.
+- Glossary: approved; added to the Crawl inventory in section 3.
+- Contact or comment mechanism: none; the site is informational only.
+
+No open decisions remain at this time.
+
+## 11. Visual Identity
+
+- Palette: red, white, and blue. Blue-dominant, with red as the accent color.
+  Whites and off-whites for surfaces. Exact hex values are defined as CSS
+  custom properties in /css/site.css and nowhere else.
+- Typography: professional and editorial. One serif for headings and one
+  humanist sans-serif for body text, each with a system font stack fallback.
+  No decorative fonts.
+- Glass effects: glassmorphism (translucent surfaces with backdrop blur) is
+  used on navigation, buttons, and card containers only. It is never placed
+  behind paragraphs of body text. Every glass surface must meet WCAG AA
+  contrast for any text it carries, and must define a solid background
+  fallback for browsers without backdrop-filter support.
+- All colors, spacing units, radii, and blur values live as CSS custom
+  properties at the top of /css/site.css. No magic numbers in component rules.
