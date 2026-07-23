@@ -20,8 +20,11 @@ Core promises to the reader:
 
 ## 2. Terminology Rules
 
-- Full term "democratic socialism" in all page titles, H1 headings, and meta
-  descriptions (search alignment).
+- Full term "democratic socialism" in all page titles and meta descriptions
+  (search alignment). H1 headings use the full term where it reads naturally;
+  section, case study, and glossary pages may use a shorter descriptive H1
+  (for example "The Nordic Model" or "Glossary of Systems") since the title
+  and meta already carry the full term.
 - "DemSoc" in body copy after first use per page.
 - Never conflate: democratic socialism, social democracy, socialism,
   communism, and mixed economy each get precise, sourced definitions on the
