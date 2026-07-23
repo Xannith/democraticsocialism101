@@ -279,10 +279,12 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 }
 .table-scroll table {
   width: 100%;
-  min-width: 44rem;
+  min-width: var(--table-min, 44rem);
   border-collapse: collapse;
   font-size: 0.9375rem;
 }
+/* For tables with more columns or longer cell text */
+.table-scroll--wide { --table-min: 52rem; }
 .table-scroll caption {
   text-align: left;
   font-size: 0.875rem;
@@ -304,7 +306,6 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 }
 .table-scroll tbody th {
   color: var(--color-navy);
-  white-space: nowrap;
 }
 .table-scroll tbody tr:last-child th,
 .table-scroll tbody tr:last-child td { border-bottom: 0; }
