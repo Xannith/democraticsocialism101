@@ -174,6 +174,12 @@ structured data, accessibility pass, Lighthouse audit.
 Each phase gets its own Claude Code prompt. Do not combine phases in one
 session.
 
+**Status: all five phases are complete.** The site was scaffolded, all Crawl,
+Walk, and Run tier content was written, every factual claim was verified or
+generalized (see the sources page), launch infrastructure was added, the
+accessibility and QA gates passed, and the site was pushed to origin for
+launch.
+
 ## 10. Resolved Decisions
 
 - Site byline: unattributed; editorial voice is the first person plural "we";
@@ -199,3 +205,21 @@ No open decisions remain at this time.
   fallback for browsers without backdrop-filter support.
 - All colors, spacing units, radii, and blur values live as CSS custom
   properties at the top of /css/site.css. No magic numbers in component rules.
+
+## 12. Maintenance
+
+- The figures page carries a visible "Last verified" date. It is refreshed on
+  a recurring quarterly review, at which point each figure's self-identification
+  and affiliation is reconfirmed against a current source.
+- Any new figure follows the figures page inclusion rule: only figures who
+  publicly self-identify as democratic socialists, cited to their own
+  statements or documented DSA membership, and never on the basis of labels
+  applied by others.
+- Any new case study follows the section 4 template and the verification
+  workflow: draft with inline verification-flag comments on every factual claim
+  and every statistic, then verify each against a primary or high-quality
+  source and record it on the sources page, generalize the claim if it cannot
+  be verified, or cut it. No specific statistic is presented from memory as
+  fact.
+- This spec remains the single source of truth for all future sessions. Update
+  the spec first, then the site.

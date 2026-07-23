@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://democraticsocialism101.com/sitemap.xml
