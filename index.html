@@ -119,8 +119,30 @@
     </nav>
     <p class="site-footer__note">An educational, non-partisan explainer. We present the strongest version of every argument, including critiques, and we cite our sources.</p>
     <p class="site-footer__note">Part of a two-site network. Our sister site <a href="https://capitalism-101.com/">capitalism-101.com</a> is an educational explainer on capitalism, mapping the same territory from the market side.</p>
+    <p class="visitor-count" id="visitor-count" hidden></p>
   </div>
 </footer>
+<script>
+(function () {
+  var SITE = 'https://democraticsocialism101.goatcounter.com';
+  var MIN  = 500;              // do not display below this
+  var SINCE = 'July 2026';     // when tracking started
+
+  var el = document.getElementById('visitor-count');
+  if (!el) return;
+
+  fetch(SITE + '/counter/TOTAL.json')
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (d) {
+      // count arrives as a formatted string, e.g. "1,204"
+      var n = parseInt(String(d.count).replace(/[^0-9]/g, ''), 10);
+      if (!n || n < MIN) return;
+      el.textContent = d.count + ' readers since ' + SINCE;
+      el.hidden = false;
+    })
+    .catch(function () { /* blocked, offline, or 404: stay hidden */ });
+})();
+</script>
 <script src="/js/site.js" defer></script>
 <script data-goatcounter="https://democraticsocialism101.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

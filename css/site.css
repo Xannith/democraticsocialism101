@@ -549,6 +549,11 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   font-size: 0.9rem;
   max-width: 44rem;
 }
+.visitor-count {
+  margin-top: var(--space-3);
+  color: var(--color-on-dark-muted);
+  font-size: 0.85rem;
+}
 
 /* Responsive: tablet and up */
 @media (min-width: 40rem) {
