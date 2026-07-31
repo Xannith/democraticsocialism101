@@ -460,6 +460,19 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   .matrix__cell { border-top: 1px solid CanvasText; }
 }
 
+/* Spectrum page: the same five-model matrix at full-page scale, with eight
+   dimensions per model instead of six. Only the subgrid row counts and the
+   type scale change; everything else comes from the matrix component. */
+.matrix--spectrum .matrix__cell dt { font-size: 0.875rem; }
+.matrix--spectrum .matrix__cell dd { font-size: 0.875rem; line-height: 1.5; }
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 44rem) {
+    .matrix--spectrum .matrix__grid { grid-template-rows: auto repeat(8, auto); }
+    .matrix--spectrum .matrix__col { grid-row: span 9; }
+    .matrix--spectrum .matrix__list { grid-row: 2 / span 8; }
+  }
+}
+
 /* Figures with captions */
 .figure {
   margin: 0 0 var(--space-5);
