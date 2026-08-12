@@ -10,11 +10,24 @@ heading.
 These claims were softened because verification did not produce a specific
 source. Restoring the specific version is the highest-value follow-up.
 
-- [ ] **NHS public support** (`case-studies/united-kingdom.html`): the claim that
-  the NHS "remains widely supported across the political spectrum" was kept
-  qualitative because no specific poll was confirmed during verification.
-  Restore a specific figure with a source such as the British Social Attitudes
-  survey or The King's Fund. Effort: small.
+- [x] **NHS public support** (`case-studies/united-kingdom.html`): RESOLVED
+  2026-08-12, but not in the direction this item anticipated, and that is the
+  point worth keeping. The item asked to restore the specific version of "remains
+  widely supported across the political spectrum." The British Social Attitudes
+  2025 results, published by The King's Fund and the Nuffield Trust in March 2026
+  and read in full, support the first half and contradict the second. Founding
+  principles do command large majorities: free at the point of need 89 percent,
+  primarily tax-funded 81 percent, available to everyone 74 percent. But the
+  report states that party differences on universality "were especially
+  pronounced," with 68 percent of Labour supporters saying the principle should
+  "definitely" apply against 45 percent of Conservative supporters and 30 percent
+  of Reform supporters. Restoring the claim as originally written would have made
+  the site wrong. The page now carries the sourced figures, names the party gap,
+  and separates support for the principles from satisfaction with the service,
+  which was 26 percent in 2025, up 6 points on 2024 and still low.
+  LESSON: a claim softened for lack of a source is not necessarily a true claim
+  waiting for a citation. Sometimes the reason no source was found is that the
+  claim is not quite right, and the fix is to change it rather than to prove it.
 
 ## 2. Cut claims (Path C)
 
